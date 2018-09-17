@@ -13,11 +13,21 @@ import {
   SERVICE_INSTANCES_DELETE_MUTATION,
 } from './mutations';
 
+import { SERVICE_INSTANCES_SUBSCRIPTION } from './subscription';
+
 import ServiceInstances from './ServiceInstances.component';
 
 import builder from '../../commons/builder';
 
 export default compose(
+  graphql(SERVICE_INSTANCES_SUBSCRIPTION, {
+    name: 'abcd',
+    options: () => ({
+      variables: {
+        environment: builder.getCurrentEnvironmentId(),
+      },
+    }),
+  }),
   graphql(SERVICE_INSTANCES_QUERY, {
     name: 'serviceInstances',
     options: () => ({

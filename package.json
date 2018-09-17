@@ -21,5 +21,9 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "apollo-link-ws": "^1.0.9",
+    "subscriptions-transport-ws": "^0.9.14"
   }
 }
